@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="Viewport" content="width=device-with, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/common.css">
+        
+        <style>
+            #main{background: url(./images/guanwang.jpg) no-repeat center 0;}
+            #nav{ background: url(./images/nav_down_re.png) repeat-x , url(./images/nav.png) no-repeat center 0; }
+            #nav .container{min-height: 236px;overflow: hidden;}
+            #nav .nav_logo{width: 138px; height: 112px; margin: 10px auto;}
+
+            #nav dl{position: absolute; top: 0;}
+            #nav dt{height: 66px;}
+            #nav dt a{width: 100%; height: 100%; display: block; text-indent: -9999px; overflow: hidden;}
+            #nav dd{line-height: 27px; font-size: 12px; text-align: center;}
+            #nav dd a{color: white; position: relative;}
+            #nav dd a:hover{color: red; text-decoration: underline;}
+            #nav dd a.hot:after{content: ""; display: block; width: 12px; height: 12px; background: url(./images/nav_tips.png) no-repeat 0 -12px; position: absolute; right: -15px; top: 0;}
+            #nav dd a.new:after{content: ""; display: block; width: 12px; height: 12px; background: url(./images/nav_tips.png) no-repeat 0 0; position: absolute; right: -15px; top: 0;}
+            #nav .nav_index{width: 65px; left: 0;}
+            #nav .nav_zl{width: 69px; left: 98px;}
+            #nav .nav_ss{width: 74px; left: 203px;}
+            #nav .nav_hd{width: 68px; left: 325px;}
+            #nav .nav_sc{width: 70px; left: 568px;}
+            #nav .nav_sp{width: 70px; left: 688px;}
+            #nav .nav_wj{width: 70px; left: 800px;}
+            #nav .nav_kf{width: 90px; left: 901px;}
+
+            #link{height: 190px;}
+            #link a{width: 450px; height: 100%; display: block; margin: 0 auto;}
+
+            #banner{height: 276px; background: url(./images/top.png) no-repeat; margin-top: 20px;}
+            #banner .banner_left{width: 240px;height: 310px; background: url(./images/down_user_spr.png) no-repeat;
+                margin: -20px 0 0 7px;}
+            #banner .banner_download p{width: 91px; height: 25px; background: url(./images/down_user_spr.png)
+                no-repeat; margin: 0 auto; text-indent: -9999px; overflow: hidden;}
+            #banner .banner_download p:first-child{background-position: -253px 0; margin-top: 44px; }
+            #banner .banner_download p:last-child{background-position: -253px -25px;}
+            
+            #banner .banner_download:hover p:first-child{animation: 1s upMove;}
+            @keyframes upMove{
+                0%{transform: translateY(-40px); opacity: 0;}
+                100%{transform: translateY(0px); opacity: 1;}
+            }
+            #banner .banner_download:hover p:last-child{animation: 1s downMove;}
+            @keyframes downMove{
+                0%{transform: translateY(40px); opacity: 0;}
+                100%{transform: translateY(0px); opacity: 1;}
+            }
+
+            #banner .banner_user div{width: 56px;height: 56px; border-radius: 50%; margin: 80px auto 0 auto;
+                 border: 2px #283257 solid; box-sizing: border-box; overflow: hidden;}
+            #banner .banner_user img{width: 100%;height: 100%;}
+            #banner .banner_user p{text-align: center; font-size: 12px; color: white; margin-top: 30px;}
+            #banner .banner_user a{color: #34f1d0;}
+
+            #banner .banner_list{width: 497px; height: 253px; overflow: hidden; margin: 14px 0 0 4px; position: relative;}
+            #banner .banner_list_ul{width: 2000px;}
+            #banner .banner_list_ul li{width: 497px; height: 253px; float: left;}
+            #banner .banner_bottomline{width: 100%; height: 37px; background: rgba(0, 0, 0, .5);border-top: 1px #514b55 solid;
+            position: absolute; bottom: 0;left: 0;}
+            #banner .banner_bottomline_ul{text-align: center;margin-top: 11px;}
+            #banner .banner_bottomline_ul li{display: inline-block; width: 15px; height: 15px; background: url(./images/top.png)
+                no-repeat -603px -299px; cursor: pointer;}
+            #banner .banner_bottomline_ul li.active{background-position: -581px -299px;}
+            #banner .banner_bottomline_leftbtn{width: 12px; height: 22px; position: absolute; left: 5px;
+                 top: 8px;background: url(./images/top.png) no-repeat -542px -296px;cursor: pointer;}
+            #banner .banner_bottomline_rightbtn{width: 12px; height: 22px; position: absolute; right: 5px;
+                 top: 8px;background: url(./images/top.png) no-repeat -554px -296px;cursor: pointer;}
+            #banner .banner_bottomline_leftbtn:hover{background-position: -542px -324px;}
+            #banner .banner_bottomline_rightbtn:hover{background-position: -554px -324px;}
+            
+            #banner .banner_list_lt,#banner .banner_list_rt,#banner .banner_list_rb,#banner .banner_list_lb{
+                width: 12px;height: 12px; background: url(./images/top.png) no-repeat; position: absolute;
+            }
+            #banner .banner_list_lt{left: -2px; top: -4px; background-position: -621px -300px;}
+            #banner .banner_list_rt{right: -2px; top: -4px; background-position: -634px -299px;}
+            #banner .banner_list_rb{right: -2px; bottom: -6px; background-position: -634px -314px;}
+            #banner .banner_list_lb{left: -2px; bottom: -4px; background-position: -621px -312px;}
+
+            #banner .banner_right{widows: 209px;  height:255px ;position: relative; margin:12px 0 0 12px;} 
+            #banner .banner_right_lt, #banner .banner_right_rt, #banner .banner_right_rb, #banner .banner_right_lb{
+                width: 15px; height: 15px; background: url(./images/top.png) no-repeat;position: absolute;
+            }
+            #banner .banner_right_lt{left: -4px; top: -4px; background-position: -681px -298px;}
+            #banner .banner_right_rt{right: -4px; top: -4px; background-position: -696px -299px;}
+            #banner .banner_right_rb{right: -4px; bottom: -6px; background-position: -696px -313px;}
+            #banner .banner_right_lb{left: -4px; bottom: -6px; background-position: -681px -312px;}
+
+            .cctv{width: 100%; height: 994px; margin-top: 35px;}
+            .cctv .cctv_xia{
+                width: 940px;
+                margin: 0 auto;
+            }
+            .inside_siderBar{
+                width: 228px;
+                /* margin-left:199px; */
+                position: relative;
+                padding: 11px 0;
+                background-position: -242px 0;
+                background-repeat: repeat-y;
+                float: left;
+                }
+            /* .inside_siderBar, .is_spr, .is_top_btn, .is_top_btn .ico, .is_link_area .cor, .is_title, .qq_service, .qqspeed_union_area .qua_btn, .qqspeed_union_area .qua_btn i {
+                background: url(./images/inside_bar.png) no-repeat;
+            } */
+            .inside_siderBar .is_spr,.is_top_btn,.is_top_btn .ico,.is_link_area .cor,.qqspeed_union_area .qua_btn i,.is_title,.qq_service,.qqspeed_union_area .qua_btn{
+                background: url(./images/inside_bar.png) no-repeat;
+
+            }
+            .inside_siderBar .is_top_bg {
+                top: 0;
+                background-position: 0 0;
+            }
+            .inside_siderBar .is_spr {
+                position: absolute;
+                height: 17px;
+                width: 228px;
+            }
+            .inside_siderBar .is_ft_bg {
+                bottom: -2px;
+                background-position: 0 -20px;
+                height: 13px;
+            }
+            .is_wp {
+                padding: 11px 10px;
+            }
+            .inside_siderBar .is_wp div{
+                display: block;
+            }
+            .inside_siderBar .sider_btn_area {
+                margin-bottom: 12px;
+            }
+            .inside_siderBar .is_top_btn {
+                width: 207px;
+                height: 57px;
+                display: block;
+                margin-bottom: 6px;
+                line-height: 300;
+                overflow: hidden;
+                position: relative;
+            }
+            .inside_siderBar .itb_newbie{background-position: 0 -137px;}
+            .inside_siderBar .itb_player_gift{background-position: 0 -200px;}
+            .inside_siderBar .is_link_area {
+                width: 208px;
+                height: 88px;
+                background: #EFEFF1;
+                position: relative;
+                zoom: 1;
+                margin-bottom: 10px;
+            }
+            .inside_siderBar .ila_bold {
+                font-weight: bold;
+                font-size: 14px;
+            }
+            .inside_siderBar .is_link_area .cor {
+                width: 13px;
+                height: 13px;
+                position: absolute;
+            }
+            .inside_siderBar .is_link_area .cor_lt {
+                left: 0;
+                top: 0;
+                background-position: 0 -105px;
+            }
+            .inside_siderBar .is_link_area .cor_rt {
+                right: 0;
+                top: 0;
+                background-position: -15px -105px
+            }
+            .inside_siderBar .is_link_area .cor_lf {
+                left: 0;
+                bottom: 0;
+                background-position: 0 -121px;
+            }
+            .inside_siderBar .is_link_area .cor_rf {
+                right: 0;
+                bottom: 0;
+                background-position: -15px -121px;
+            }
+            .inside_siderBar .is_link_area ul {
+                padding: 10px 0;
+            }
+            .inside_siderBar .is_link_area li {
+                width: 50%;
+                float: left;
+                text-align: center;
+                line-height: 20px;
+                padding: 7px 0;
+            }
+            .inside_siderBar .is_link_area li:hover{
+                
+                text-decoration: underline;
+            }
+            .inside_siderBar .is_wp .is_link_area .cor_top_center, .is_link_area .cor_ft_center {
+                width: 29px;
+                height: 10px;
+                background-position: -30px -105px;
+                left: 50%;
+                margin-left: -14px;
+            }
+            
+            .is_link_area .cor_top_center {
+                top: 0;
+            }
+            /* .is_link_area .cor_ft_center {
+                bottom: 0;
+                background-position: -30px -117px;
+            } */
+            .inside_siderBar .is_wp .ila_got_cor{
+                width: 208px;
+                height: 224px;
+            }
+            .inside_siderBar .is_wp .is_link_area ul{
+                list-style: none;
+                padding: 10px 0;
+            }
+            .inside_siderBar .is_wp .is_link_area li{
+                width: 50%;
+                display: list-item;
+                float: left;
+                text-align: center;
+                line-height: 20px;
+                padding: 7px 0;
+                font-size: 12px;
+            }
+            .inside_siderBar .is_title {
+               
+                display: block;
+                height: 63px;
+                
+                line-height: 300;
+                overflow: hidden;
+                background-position: 0 -40px;
+                margin: 0 -10px;
+                display: block;
+            }
+            #aabbcc{width: 208px; height: 156px;margin-top: 10px;}
+            .inside_siderBar .qq_service{
+                width: 206px;
+                height: 46px;
+                margin-bottom: 7px;
+                background-position: 0 -306px;
+                display: block;
+                line-height: 300;
+                overflow: hidden;
+            }
+            .inside_siderBar .qqspeed_union_area{    margin: 0 0 7px;position: relative;}
+            .inside_siderBar .qqspeed_union_area .qua_btn {
+                cursor: pointer;
+                width: 206px;
+                height: 38px;
+                display: block;
+                background-position: 0 -354px;
+                position: relative;
+                color: #2A2C45;
+                margin: 0 0 7px;
+            }
+            .inside_siderBar .qqspeed_union_area .qua_btn .f {
+                position: absolute;
+                line-height: 1;
+                font-size: 12px;
+                top: 12px;
+                left: 26px;
+            }
+            .inside_siderBar .qqspeed_union_area .qua_btn i {
+                width: 8px;
+                height: 4px;
+                position: absolute;
+                right: 20px;
+                top: 18px;
+                background-position: -211px -306px;
+            }
+
+            
+            
+            
+        </style>
+        <style>
+            .cctv .inside_mainBar{
+                width: 712px;
+                height: 812px; 
+                float: right;
+                
+            }
+            .inside_mainBar .is_wp {
+                margin-bottom: 10px;
+                width: 712px;
+                height: 273px;
+            }
+            .inside_mainBar .W478_box {
+                float: left;
+                width: 478px;
+            }
+            .inside_mainBar .title_box {
+                height: 44px;
+                position: relative;
+                border-bottom: 1px solid #D4D6D9;
+            }
+            .title_box h3 {
+                height: 20px;
+                position: absolute;
+                left: 4px;
+                top: 50%;
+                margin-top: -10px;
+                background: url(./images/title.png ) no-repeat;
+                line-height: 300;
+                overflow: hidden;
+                width: 160px;
+            }
+            .title_box  .xinwen {
+                width: 75px;
+                background-position: 0 0;
+            }
+            .more {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -15px;
+                overflow: hidden;
+                width: 40px;
+                height: 30px;
+            }
+            .more span, .more i,.tab_title li i,.tab_con_wp i {
+                background: url(./images/inside_spr.png ) no-repeat;
+                cursor: pointer;
+            }
+            .more span {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                margin: -6px 0 0 -16px;
+                width: 24px;
+                height: 11px;
+                background-position: 0 -184px;
+                line-height: 300;
+            }
+            .more i {
+                width: 5px;
+                height: 5px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -2px;
+                background-position: -49px -16px;
+            }
+            .tab_box {
+                position: relative;
+                zoom: 1;
+                border-top: 1px solid #FFFFFF;
+                background: url(./images/tab_shadow_bg.png ) repeat-x;
+                height: 217px;
+            }
+            .tab_title {
+                height: 36px;
+                line-height: 36px;
+            }
+            .tab_title li {
+                width: 19.5%;
+            }
+            .tab_title li {
+                float: left;
+                text-align: center;
+                font-weight: bold;
+                font-size: 14px;
+                color: #2A2C45;
+                cursor: pointer;
+                position: relative;
+            }
+            .tab_title li:hover{
+                color: red;
+            }
+            /* .tab_title li i {
+                background-position: 0 0; */
+            }.tab_title li i {
+                position: absolute;
+                left: 50%;
+                width: 12px;
+                height: 6px;
+                top: 0;
+                margin-left: -6px;
+                display: none;
+                top: -2px;
+            }
+            .tab_con_wp {
+                position: relative;
+                zoom: 1;
+            }
+            .tab_con_wp .top {
+                padding: 0 50px;
+                color: #FF3052;
+            }
+            .tab_con_wp .top {
+                font-weight: bold;
+                font-size: 17px;
+                font-weight: bold;
+                text-align: center;
+                height: 34px;
+                line-height: 36px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .tab_con_wp .top a{
+                color: red;
+            }
+            .tab_con_wp li i {
+                width: 4px;
+                height: 6px;
+                background-position: -22px -26px;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -3px;
+            }
+            .tab_con_wp li {
+                position: relative;
+                zoom: 1;
+                font-size: 14px;
+                line-height: 25px;
+                vertical-align: middle;
+            }
+            .tab_con_wp li, .tab_con_wp li a {
+                color: #2A2C45;
+            }
+            .tab_con_wp li .cay {
+                padding: 0 10px 0 14px;
+            }
+            .tab_con_wp li .time {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #92939F;
+            }
+            .index_mian_side {
+                float: right;
+                width: 212px;
+                
+            }
+            .title_box {
+                height: 44px;
+                position: relative;
+                border-bottom: 1px solid #D4D6D9;
+            }
+            .title_box h3 {
+                height: 20px;
+                position: absolute;
+                left: 4px;
+                top: 50%;
+                margin-top: -10px;
+                background: url(./images/title.png ) no-repeat;
+                line-height: 300;
+                overflow: hidden;
+                width: 160px;
+            }
+            .title_box h3.tb_act {
+                width: 96px;
+                background-position: 0 -31px;
+            }
+            .ims_ad {
+                padding-top: 8px;
+                background: url(./images/tab_shadow_bg.png ) repeat-x;
+                height: 220px;
+            }
+            .ims_ad li a, .ims_ad li {
+                position: relative;
+                zoom: 1;
+                width: 213px;
+                height: 108px;
+                display: block;
+            }
+            .ims_ad li {
+                margin-bottom: 4px;
+            }
+            .ims_ad li img {
+                padding: 3px;
+                display: block;
+                width: 205px;
+                height: 100px;
+            }
+            .title_box h3.tb_race {
+                width: 80px;
+                background-position: 0 -60px;
+            }
+            .tab_box_three .tab_title li {
+                width: 32.5%;
+            }
+            .tab_con_wp .race_top {
+                height: auto;
+                text-align: left;
+                width: 310px;
+                
+                padding: 0;
+                color: #309DFF;
+            }
+            .tab_box_blue .tab_con_wp .top a {
+                color: #309DFF;
+            }
+            .tab_con_wp .race_top dd span {
+                display: inline-block;
+                vertical-align: middle;
+                padding-right: 5px;
+            }
+            .line_ico {
+                display: inline-block;
+                vertical-align: middle;
+                background: url(../img/inside_spr.png) no-repeat;
+                width: 35px;
+                height: 10px;
+                background-position: -21px 0 !important;
+            }
+            .tab_con_wp li {
+                position: relative;
+                
+                zoom: 1;
+                line-height: 25px;
+                vertical-align: middle;
+            }
+            .race_tab_con li a {
+                display: block;
+                margin-right: 50px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .tab_con_wp li .time {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #92939F;
+            }
+            .race_tab_con .race_ad {
+                position: absolute;
+                left: 0;
+                top: 9px;
+            }
+            .race_ad {
+                width: 155px;
+                height: 174px;
+                position: relative;
+            }
+            .race_ad img {
+                padding: 3px;
+            }
+            .race_tab_con .tab_con_wp {
+    padding-left: 168px;
+}
+.title_box h3.tb_version {
+    width: 128px;
+    background-position: 0 -187px;
+}
+.title_box h3.tb_video {
+    width: 74px;
+    background-position: 0 -122px;
+}
+.cctv_xia .zuihou{
+    width: 712px;
+}
+.tab_box_six .tab_title li {
+    width: 16.5%;
+}
+.vod_list {
+    padding-top: 15px;
+    margin: 0 0 19px -6px;
+    height: 130px;
+    overflow: hidden;
+}
+.vod_list li {
+    float: left;
+    position: relative;
+    background: none !important;
+    text-align: center;
+    margin-left: 6px;
+    width: 173px;
+}
+.tab_con_wp li a.name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cover_light {
+    background: url(./images/ad_cover.png ) repeat-x;
+}
+.vod_list li .cover_light {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: -248px -2px;
+    width: 173px;
+    cursor: pointer;
+}
+.vod_list li .pic {
+    display: block;
+    position: relative;
+}
+.vod_list li .pic {
+    height: 104px;
+}
+.footer_tips {
+    margin-top: 10px;
+    text-align: center;
+    border-top: 1px solid #EDEDED;
+    width: 1000px;
+    margin: 0 auto;
+    height: 44px;
+    line-height: 22px;
+    padding-top: 10px;
+    margin-bottom: 29px;
+}
+.footer_tips dt {
+    font-size: 15px;
+    font-weight: bold;
+}
+.footer_tips dd {
+    padding-left: 145px;
+}
+.footer_tips dd li {
+    padding: 0 7px;
+    float: left;
+    font-size: 12px ;
+}
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="head" class="container-fluid">
+            <div class="container">
+                <div class="head_logo l">
+                    <a href="#" >腾讯游戏</a>
+                </div>
+                <div class="head_ad l">
+                    <a href="#">
+                        <img src="./images/df76061bb193e59aba9255ad098f4316.jpg" alt="">
+                    </a>
+                </div>
+                
+                <div class="head_menu r">
+                    <div class="head_menu_czsh l">
+                        <a href="#">成长守护平台</a>
+                    </div>
+                    <div class="head_menu_top l">
+                        <a href="#">腾讯游戏排行榜</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main" class="container-fluid">
+            <div id="nav" class="container-fluid">
+                <div class="container">
+                    <div class="nav_logo">
+                        <a href="#">
+                            <img src="./images/inside_logo.png" alt="QQ飞车" title="QQ飞车">
+                        </a>
+                    </div>
+                    <dl class="nav_index">
+                        <dt>
+                            <a href="#">首页</a>
+                        </dt>
+                    </dl>
+                    <dl class="nav_zl">
+                        <dt></dt>
+                        <dd><a href="#">新手指引</a></dd>
+                        <dd><a class="hot" href="#">官方漫画</a></dd>
+                        <dd><a class="new" href="#">飞车手游</a></dd>
+                        <dd><a href="#">精美壁纸</a></dd>
+                        <dd><a href="#">游戏下载</a></dd> 
+                    </dl>
+                    <dl class="nav_ss">
+                        <dt></dt>
+                        <dd><a class="hot" href="#">谁是车王</a></dd>
+                        <dd><a href="#">SSC</a></dd>
+                        <dd><a href="#">全国公开赛</a></dd>
+                    </dl>
+                    <dl class="nav_hd">
+                        <dt></dt>
+                        <dd><a class="hot" href="#">版本专区</a></dd>
+                        <dd><a href="#">合作专区</a></dd>
+                        <dd><a href="#">CDK兑换</a></dd> 
+                    </dl>
+                    <dl class="nav_sc">
+                        <dt></dt>
+                        <dd><a href="#">紫钻专区</a></dd>
+                        <dd><a href="#">道聚城</a></dd>
+                        <dd><a href="#">点券充值</a></dd> 
+                    </dl>
+                    <dl class="nav_sp">
+                        <dt></dt>
+                        <dd><a href="#">教学视频</a></dd>
+                        <dd><a href="#">视频中心</a></dd>
+                        <dd><a href="#">CDK兑换</a></dd> 
+                    </dl>
+                    <dl class="nav_wj">
+                        <dt></dt>
+                        <dd><a href="#">官方论坛</a></dd>
+                        <dd><a class="hot" href="#">掌上飞车</a></dd>
+                        <dd><a href="#">兴趣部落</a></dd> 
+                        <dd><a href="#">官方微信</a></dd> 
+                        <dd><a href="#">官方微博</a></dd> 
+                    </dl>
+                    <dl class="nav_kf">
+                        <dt></dt>
+                        <dd><a href="#">客服中心</a></dd>
+                        <dd><a href="#">封号查询</a></dd>
+                        <dd><a href="#">游戏安全评测</a></dd> 
+                        <dd><a href="#">安全信用体系</a></dd> 
+                    </dl>
+
+            </div>
+            </div>
+            <div id="link" class="container">
+                <a href="#"></a>
+            </div>
+            <div id="banner" class="container">
+                <div class="banner_left l">
+                    <div class="banner_download">
+                        <p>下载游戏</p>
+                        <p>DOWNLOAD</p>
+                    </div>
+                    <div class="banner_user">
+                        <div>
+                        <img src="./images/56x56.jpg" alt="">
+                        </div>
+                        <p>欢迎<a href="#">登陆</a> , 进入飞车世界</p>
+                    </div>
+                </div>
+                <div class="banner_center l">
+                    <div class="banner_list" id="uldiv">
+                        <ul class="banner_list_ul" id="divul">
+                            <li id="divli">
+                                <a href="#"><img src="./images/1.jpeg" alt="" id="lunbo"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./images/2.jpeg" alt="" id="lunbo"></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./images/3.jpeg" alt="" id="lunbo"></a>
+                            </li>
+                            
+                        </ul>
+                        <div class="banner_bottomline">
+                            <ul class="banner_bottomline_ul">
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <div class="banner_bottomline_leftbtn" id="leftbb"></div>
+                            <div class="banner_bottomline_rightbtn" id="rightbb"></div>
+                        </div>
+                        <i class="banner_list_lt"></i>
+                        <i class="banner_list_rt"></i>
+                        <i class="banner_list_rb"></i>
+                        <i class="banner_list_lb"></i>
+                    </div>
+                </div>
+                <div class="banner_right l">
+                    <a href="#"><img src="./images/7b5dfe26d96bc1e94df231e5cb763f1e.jpeg" alt=""></a>
+                    <i class="banner_right_lt"></i>
+                    <i class="banner_right_rt"></i>
+                    <i class="banner_right_rb"></i>
+                    <i class="banner_right_lb"></i>
+                </div>
+            </div>
+        </div>
+        <div class="cctv">
+            <div class="cctv_xia">
+                <div  class="inside_siderBar">
+                        <span class="is_spr is_top_bg"></span>
+                        <span class="is_spr is_ft_bg"></span>
+                        <div class="is_wp">
+                            <div class="sider_btn_area">
+                                
+                                <a href="#" class="is_top_btn itb_newbie">视频中心</a>
+                                <a href="#" class="is_top_btn itb_player_gift">紫砖专区</a>
+                            </div>
+                            
+                            <div class="is_link_area ila_bold">
+                                <span class="cor cor_lt"></span>
+                                <span class="cor cor_rt"></span>
+                                <span class="cor cor_lf"></span>
+                                <span class="cor cor_rf"></span>
+                                <ul>
+                                    <li><a href="#">点券充值</a></li>
+                                    <li><a href="#">视频中心</a></li>
+                                    <li><a href="#">开通紫钻</a></li>
+                                    <li><a href="#">官方论坛</a></li>
+                                </ul>
+                            </div>
+                            <div class="is_link_area ila_got_cor">
+                                <span class="cor cor_lt"></span>
+                                <span class="cor cor_rt"></span>
+                                <span class="cor cor_lf"></span>
+                                <span class="cor cor_rf"></span>
+
+                                <span class="cor cor_top_center"></span>
+                                <!-- <span class="cor cor_ft_center"></span> -->
+                                <ul>
+                                    <li><a href="#" class="hot">点亮图标</a></li>
+                                    <li><a href="#">道聚城</a></li>
+                                    <li><a href="#">SSC联赛</a></li>
+                                    <li><a href="#">体验服</a></li>
+                                    <li><a href="#">补丁下载</a></li>
+                                    <li><a href="#">新手礼包</a></li>
+                                    <li><a href="#">回归福利</a></li>
+                                    <li><a href="#">CDK兑换</a></li>
+                                    <li><a href="#">官方微信</a></li>
+                                    <li><a href="#">掌上飞车</a></li>
+                                    <li><a href="#">官方漫画</a></li>
+                                    <li><a href="#">合作专区</a></li>
+
+                                </ul>
+                                
+                            </div>
+                            <h4 class="is_title it_service">客服中心</h4>
+                            <div class="is_link_area ila_got_cor" id="aabbcc">
+                                <span class="cor cor_lt"></span>
+                                <span class="cor cor_rt"></span>
+                                <span class="cor cor_lf"></span>
+                                <span class="cor cor_rf"></span>
+
+                                <span class="cor cor_top_center"></span>
+                                <ul>
+                                    <li><a href="#" class="hot">封号查询</a></li>
+                                    <li><a href="#">密码找回</a></li>
+                                    <li><a href="#">用户协议</a></li>
+                                    <li><a href="#">玩家条例</a></li>
+                                    <li><a href="#">安全中心</a></li>
+                                    <li><a href="#">防沉迷</a></li>
+                                    <li><a href="#">家长监控</a></li>
+                                    <li><a href="#">点亮皇族</a></li>
+                                    
+
+                                </ul>
+
+                            </div>
+                            <a href="#" class="qq_service">QQ在线客服</a>
+                            <div class="qqspeed_union_area">
+                                <div class="qua_btn">
+                                    <span class="f">QQ飞车合作媒体站点</span>
+                                    <i></i>
+                                </div>
+                                <div class="qua_btn">
+                                    <span class="f">QQ飞车合作伙伴站点</span>
+                                    <i></i>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="inside_mainBar">
+                    <div class="is_wp">
+                        <div class="W478_box">
+                            <div class="title_box">
+                                <h3 class="xinwen">新闻</h3> 
+                                <a href="#" class="more">
+                                    <span>more+</span>
+                                    <i></i>
+                                </a>
+                            </div>
+
+                            <div class="tab_box ">
+                                <div class="tab_title">
+                                    <ul>
+                                        <li><i></i>综合</li>
+                                        <li><i></i>活动</li>
+                                        <li><i></i>公告</li>
+                                        <li><i></i>赛事</li>
+                                        <li><i></i>论坛</li>
+                                    </ul>
+                                </div>
+                                <div class="tab_con">
+                                    <div class="tab_con_wp">
+                                        <div class="top">
+                                            <a href="#">6.13-6.14 送13088点券+A车荣耀霸主+6倍开启</a>
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2总决赛收官 新血注入 更激湍流</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2冠军赛 黄国发荣登冠军宝座</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2四进二淘汰赛 黄国发、张顺成功晋级</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2复活晋级赛 张顺、欧阳聪耀挺进四强</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2八进四B组 黄国发得胜晋级</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                            <li>
+                                                <i></i>
+                                                <span class="cay">[公开赛]</span>
+                                                <a href="#">公开赛S2八进四A组 李志率先晋级</a>
+                                                <span class="time">06/14</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                        </div>
+                        <div class="index_mian_side">
+                            <div class="title_box">
+                                <h3 class="tb_act">活动</h3>
+
+                            </div>  
+
+                            <ul class="ims_ad" id="">
+                                <li><a href="#"><img src="./images/dd610a9270329ee03de7070134f1ffec.jpeg" alt=""></a></li>
+                                <li><a href="#"><img src="./images/bab3ae0f9026dd53c3ff7fd737ccdd37.jpeg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="is_wp">
+                        <div class="W478_box">
+                            <div class="title_box">
+                                <h3 class="tb_race">赛事</h3> 
+                                <!-- <a href="#" class="more">
+                                    <span>more+</span>
+                                    <i></i> -->
+                                </a>
+                            </div>
+
+                            <div class="tab_box tab_box_three tab_box_blue">
+                                <div class="tab_title">
+                                    <ul>
+                                        <li><i></i>谁是车王</li>
+                                        <li><i></i>全国公开赛</li>
+                                        <li><i></i>SSC</li>
+                                        
+                                    </ul>
+                                </div>
+
+
+
+
+                                <div class="tab_con race_tab_con ">
+                                    <div class="tab_con_wp">
+                                        
+                                            <dl class="top race_top">
+                                                <dl class="race_top">
+                                                    <dt><a href="#">斗鱼《段位竞速赛》，终极对决即将开启</a></dt>
+                                                    <dd>
+                                                        <span></span>
+                                                        <i class="line_ico"></i>
+                                                    </dd>
+                                                </dl>
+                                            </dl>
+                                            <ul><ul>
+                                                <li><a href="#">斗鱼《段位竞速赛》，终极对决即将开启</a><span class="time">06/25</span></li>
+                                                <li><a href="#">斗鱼QQ飞车《车神召集令》火热来袭！</a><span class="time">06/25</span></li>
+                                                <li><a href="#">虎牙QQ飞车群雄逐速，车手集合领A车！</a><span class="time">06/25</span></li>
+                                                <li><a href="#">“歪语杯”水友赛八进四 严斌&谭伟仪花样解说</a><span class="time">06/25</span></li>
+                                                <li><a href="#">QQ飞车直播平台冠军赛——双平台赛江章闯夺冠！</a><span class="time">06/25</span></li>
+                                            </ul></ul>
+                                            <a href="#" class="race_ad"><img src="./images/d5f716295529d2aa08bb165cc422d3c7.jpeg" alt="" width="150" height="168"></a>
+                                            
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="index_mian_side">
+                            <div class="title_box">
+                                <h3 class="tb_version">版本相关</h3>
+
+                            </div>  
+
+                            <ul class="ims_ad" id="">
+                                <li><a href="#"><img src="./images/dd610a9270329ee03de7070134f1ffec.jpeg" alt=""></a></li>
+                                <li><a href="#"><img src="./images/bab3ae0f9026dd53c3ff7fd737ccdd37.jpeg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                   
+                    <div class="is_wp ">
+                        <div class="W478_box zuihou">
+                            <div class="title_box">
+                                <h3 class="tb_video">视频</h3> 
+                                <a href="#" class="more">
+                                    <span>more+</span>
+                                    <i></i>
+                                </a>
+                            </div>
+
+                            <div class="tab_box tab_box_six">
+                                <div class="tab_title">
+                                    <ul>
+                                        <li><i></i>最新</li>
+                                        <li><i></i>推荐</li>
+                                        <li><i></i>教学</li>
+                                        <li><i></i>赛车</li>
+                                        <li><i></i>赛事</li>
+                                        <li><i></i>官方</li>
+                                    </ul>
+                                </div>
+                                <div class="tab_con">
+                                    <div class="tab_con_wp">
+                                        
+                                        <ul class="vod_list">
+                                            <li>
+                                                <a href="#" class="pic"><span class="cover_light"></span><i class="play_ico"></i><img src="./images/8.jpg" alt="" width="171" height="102"></a>
+                                                <a href="#" class="name">兄弟团丶安然晓坚 亚特兰蒂斯 1.48.94</a>
+                                                
+                                            </li>
+                                            <li>
+                                                <a href="# class="pic"><span class="cover_light"></span><i class="play_ico"></i><img src="./images/9.jpg" alt="" width="171" height="102"></a>
+                                                <a href="#" class="name">【极速之王改装版】YuShang 时之沙 1.17.37（A）</a>
+                                                
+                                            </li>
+                                            <li>
+                                                <a href="#" class="pic"><span class="cover_light"></span><i class="play_ico"></i><img src="./images/10.jpg" alt="" width="171" height="102"></a>
+                                                <a href="#" class="name">【极限之王改装版】Evolto 莲池幽径 1.19.27（S）</a>
+                                                
+                                            </li>
+                                            <li>
+                                                <a href="#" class="pic"><span class="cover_light"></span><i class="play_ico"></i><img src="./images/11.jpg" alt="" width="171" height="102"></a>
+                                                <a href="#" class="name">QQ飞车全国公开赛S2_总决赛_四强赛</a>
+                                                
+                                            </li>
+                                            
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+
+                        
+                        
+                    
+
+                    </div>
+                    </div>
+                </div>
+            </div> 
+         </div>
+
+         <div class="footer_tips">
+             <dl>
+                 <dt>温馨提示：本游戏适合16岁(含)以上玩家娱乐；请您确定已如实进行实名注册；为了您的健康，请合理控制游戏时间。 </dt>
+                 <dd>
+                     <ul>
+                         <li>抵制不良游戏</li>
+                         <li>拒绝盗版游戏</li>
+                         <li>注意自我保护</li>
+                         <li>谨防受骗上当</li>
+                         <li>适度游戏益脑</li>
+                         <li>沉迷游戏伤身</li>
+                         <li>合理安排时间</li>
+                         <li>享受健康生活</li>
+                     </ul>
+                 </dd>
+             </dl>
+         </div>    
+            
+         <script>
+            var kuang = document.getElementById("uldiv");                                        //获取整个轮播图的框，方便鼠标放上时停止轮播
+var pic = document.getElementById("divul");　　　　　　　　　　　　　//获取ul标签 存放图片的列表
+var list = document.getElementById("divli"); //获取ol标签  存放控制点的列表
+var timer;　　　　　　　　　　　　　　　　　　　　　　　　　　　//定义一个定时器，方便清除
+var i = 0;　　　　　　　　　　　　　　　　　　　　　　　　　　　//定义一个i  作为当前显示的图片和控制点的序号
+var la = document.getElementById("leftbb");　　　　　　　　　　　　　 //获取左边的箭头
+var ra = document.getElementById("rightbb");　　　　　　　　　　　　　//获取右边的箭头
+
+ 
+
+写出图片和控制点切换时的函数
+
+function change(num){     　　　　　　　　//切换时的函数名叫 change  设置一个形参num 用来接收实参 即当前正在显示的图片和控制点的序号
+　　pic.style.marginLeft = -450*num+"px";  //设置图片向左移动 图片宽度*num px  的距离   可显示到另一张图片 实现图片切换
+　　for(let j = 0; j < 7; j++){　　　　　　　 //设置循环 为了将所有（0-6）的控制点的样式清空
+　　　　list[j].setAttribute("class","");          //添加class 为空
+　　}
+　　list[num].className = "on";                  //将当前需要显示的图片和控制点的序号给上样式  添加class 为 on  on在style中是已经写出的样式
+　　i = num;　　　　　　　　　　　　　  //将 num 的值 赋给 i 改变整个循环的进度 让整个循环能从正在显示的这张图片开始自动播放以及左右点击切换
+}
+
+function autoPlay() {         //定义一个函数autoPlay，每次调用它时改变i的值 让定时器调用它形成自动轮播的效果
+　　i++;                            //每次用定时器调用 都让i+1 显示到后面一张
+　　if(i == 7){　　　　　  //到最后一张时 回到第一张
+　　　　i = 0;
+　　}
+　　change(i);                　//调用change 将i 传入 
+}
+
+var timer = setInterval(autoPlay,1000);     //定义timer  定时器每隔1000毫秒调用一次autoPlay函数，实现自动轮播
+
+kuang.onmouseover = function(){          //定义轮播图的鼠标移入时间：当鼠标移入轮播图上时 清除定时器timer让图片和控制点不再自动循环 
+　　clearInterval(timer)
+}
+kuang.onmouseout = function(){　　　　//定义轮播图的鼠标移出时间：当鼠标移出轮播图上时 重新定义定时器timer让图片和控制点继续自动循环 
+　　timer = setInterval(autoPlay,1000);
+}
+
+ 
+
+for(let j = 0 ; j < 7; j++){                           //通过循环给每个控制点都给上鼠标移入事件 
+　　list[j].onmouseover = function(){
+　　change(j);　　　　　　　　　　　//鼠标移入时将鼠标移入的控制点的序号传入change函数 让change函数将图片和控制点的样式都转换
+　　}
+}
+
+la.onclick = function(){                //给左箭头定义一个鼠标点击事件：当点击它时让图片和控制点都向左改变一次
+　　i = i-1;                                 //将当前显示的图片的序号减一，如果序号从0减到-1  将序号改成最后一张的序号
+　　if(i == -1){
+　　　　i = 6;
+　　　　change(i)        　　　　//然后直接调用change函数改变
+　　}else{
+　　　　change(i)　　　　　　//不管i改变成哪个序号都要调用change函数改变
+　　}
+
+}
+ra.onclick = function(){                //和左箭头一样  只是当图片是最后一张时 点击右箭头要让图片返回第一张
+　　i = i+1;
+　　if(i == 7){
+　　　　i = 0;
+　　　　change(i)
+　　}else{
+　　　　change(i)
+　　}
+}
+         </script>
+
+        
+
+
+        
+    </body>
+
+</html>
